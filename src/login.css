@@ -1,0 +1,203 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+*
+{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+.background
+{
+	height: 100%;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+	flex-direction: column;
+	background:url("https://wallpaperset.com/w/full/2/9/9/44647.jpg");
+}
+.box 
+{
+	position: relative;
+	width: 400px;
+	height: 540px;
+	background: transparent;
+	border-radius: 8px;
+	overflow: hidden;
+}
+
+
+form 
+{
+	position: absolute;
+	inset: 5px;
+/* From https://css.glass */
+background: rgba(255, 255, 255, 0.21);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(20px);
+-webkit-backdrop-filter: blur(8.9px);
+border: 1px solid rgba(255, 255, 255, 0.37);
+	padding: 50px 40px;
+	border-radius: 8px;
+	z-index: 2;
+	display: flex;
+	flex-direction: column;
+}
+h2 
+{
+	color: rgb(170, 10, 85);
+	font-weight: 500;
+	text-align: center;
+	letter-spacing: 0.1em;
+}
+.inputBox 
+{
+	position: relative;
+	width: 300px;
+	margin-top: 35px;
+}
+.inputBox input 
+{
+	position: relative;
+	width: 100%;
+	padding: 20px 10px 10px;
+	background: transparent;
+	outline: none;
+	box-shadow: none;
+	border: none;
+	color: #fafafc;
+	font-size: 1em;
+	letter-spacing: 0.05em;
+	transition: 0.5s;
+	z-index: 10;
+}
+.inputBox span 
+{
+	position: absolute;
+	left: 0;
+	padding: 20px 0px 10px;
+	pointer-events: none;
+	font-size: 1em;
+	color: rgb(170, 10, 85);
+	letter-spacing: 0.05em;
+	transition: 0.5s;
+}
+.inputBox input:valid ~ span,
+.inputBox input:focus ~ span 
+{
+	color: rgb(170, 10, 85);
+	transform: translateX(0px) translateY(-34px);
+	font-size: 0.75em;
+}
+.inputBox i 
+{
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	height: 2px;
+	background: rgb(170, 10, 85);
+	border-radius: 4px;
+	overflow: hidden;
+	transition: 0.5s;
+	pointer-events: none;
+	z-index: 9;
+}
+.inputBox input:valid ~ i,
+.inputBox input:focus ~ i 
+{
+	height: 44px;
+}
+.links 
+{
+	display: flex;
+	justify-content: space-between;
+}
+.links a 
+{
+	margin: 10px 0;
+	font-size: 0.75em;
+	color: rgb(228, 153, 188);
+	text-decoration: beige;
+}
+.links a:hover, 
+.links a:nth-child(2)
+{
+	color: rgb(170, 10, 85);
+}
+input[type="submit"]
+{
+	border: none;
+	outline: none;
+	padding: 11px 25px;
+	background: rgb(170, 10, 85);
+	cursor: pointer;
+	border-radius: 4px;
+	font-weight: 600;
+	width: 100px;
+	margin-top: 10px;
+	color: rgb(226, 69, 142);
+}
+input[type="submit"]:active 
+{
+	opacity: 0.8;
+}
+.signup {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 20px;
+  }
+  
+  .signup p {
+	color: rgb(228, 153, 188);
+	font-size: 0.9em;
+	margin-right: 10px;
+  }
+  
+  .signupcolor{
+	color: rgb(170, 10, 85);
+
+  } 
+  .signupcolor:hover{
+	color:rgb(228, 153, 188);
+  }
+
+  #customlogo {
+        
+    height: 100px;
+    display:block;
+    margin:auto;
+    position: relative;
+    
+    
+}
+::-webkit-scrollbar {
+    background-color: rgba(255, 255, 255, 0.21);
+    width: 5px; /* Adjust the width as needed */
+    height: 3px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(255, 255, 255, 0.21);
+    -webkit-border-radius: 10px;
+    border-radius: 5px;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 5px;
+    border-radius: 15px;
+    background: #E2458E;
+    box-shadow: inset 0 0 6px rgba(255, 255, 255, 0.21);
+  }
+  
+  /* Handle when inactive */
+  ::-webkit-scrollbar-thumb:window-inactive {
+    background: #E2458E;
+  }
+  
