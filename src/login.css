@@ -157,6 +157,7 @@ input[type="submit"]:active
 	color: rgb(228, 153, 188);
 	font-size: 0.9em;
 	margin-right: 10px;
+	margin-bottom: 0px;
   }
   
   .signupcolor{
