@@ -5,8 +5,8 @@ import { Link } from 'react-router-dom';
 
 const LoginPage = () => {
   return (
-    <div className='background'>
-       
+    
+  <div className="login-section">     
           <div className="box">
             <form autoComplete="off" action="feed.html">
               <img id="customlogo" src="/pinkblink icon.PNG" alt="logo image" />
@@ -34,8 +34,6 @@ const LoginPage = () => {
             </form>
           </div>
         </div>
-      
- 
   );
 };
 

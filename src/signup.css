@@ -7,15 +7,7 @@
 	box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
 }
-body 
-{
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	min-height: 100vh;
-	flex-direction: column;
-	background:url("https://wallpaperset.com/w/full/2/9/9/44647.jpg");
-}
+
 .box2
 {
     position: relative;
@@ -208,4 +200,4 @@ input[type="submit"]:active
    
         /* Scrollbar */
 
-  
+        

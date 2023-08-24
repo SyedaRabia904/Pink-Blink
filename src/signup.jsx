@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 function Signup() {
   return (
+    <div className="login-section"> 
     <div className="box2">
       <form>
         <img id="customlogo" src="/pinkblink icon.PNG" alt="logo image" />
@@ -49,7 +50,7 @@ function Signup() {
           <Link className="signupcolor" to='/login'>Login</Link>
         </div>
       </form>
-    </div>
+    </div></div>
   );
 }
 

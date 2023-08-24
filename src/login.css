@@ -7,8 +7,9 @@
 	box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
 }
-.background
-{
+.login-section {
+
+	margin: 0;
 	height: 100%;
 	width: 100%;
 	display: flex;
@@ -16,7 +17,7 @@
 	align-items: center;
 	min-height: 100vh;
 	flex-direction: column;
-	background:url("https://wallpaperset.com/w/full/2/9/9/44647.jpg");
+	background:url("https://wallpaperset.com/w/full/2/9/9/44647.jpg") !important;
 }
 .box 
 {
@@ -169,6 +170,7 @@ input[type="submit"]:active
   #customlogo {
         
     height: 100px;
+	width: 100px;
     display:block;
     margin:auto;
     position: relative;
