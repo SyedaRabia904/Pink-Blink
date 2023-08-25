@@ -48,7 +48,7 @@ function Slideshow() {
 
         <div className="mySlides fade">
           <div className="numbertext">3 / 3</div>
-          <img src="public/skincare.avif" style={{width:"100%", height:"80vh"}}  alt="Image" />
+          <img src="https://img.freepik.com/free-photo/flat-lay-natural-self-care-products-composition_23-2148990019.jpg?w=2000" style={{width:"100%", height:"80vh"}}  alt="Image" />
           <div className="text">Skin Care</div>
         </div>
       </div>
