@@ -203,4 +203,7 @@ input[type="submit"]:active
   ::-webkit-scrollbar-thumb:window-inactive {
     background: #E2458E;
   }
-  
+  .products-image {
+	max-height: 100px; /* Adjust the height as needed */
+	width: auto; /* Maintain aspect ratio */
+  }

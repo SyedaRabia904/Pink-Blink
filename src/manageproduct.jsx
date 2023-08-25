@@ -222,7 +222,7 @@ export default function Items() {
         <tr key={product.id}>
           <th scope="row">{product.id}</th>
           <td>
-            <img className="product-image" src={product.images[0]}  alt={`Cover for ${product.name}`} />
+            <img className="products-image" src={product.images[0]}  alt={`Cover for ${product.name}`} />
           </td>
           <td>{product.name}</td>
           <td>{product.price}</td>
