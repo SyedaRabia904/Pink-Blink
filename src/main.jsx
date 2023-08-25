@@ -8,6 +8,8 @@ import Slideshow from './slideshow';
 import { WomenWear } from './women\'swear';
 import { Makeup } from './makeup';
 import { SkinCare } from './skincare';
+import  Admin  from './admin';
+import { Myinfo } from './myinfo';
 
 const routes = createBrowserRouter([
   {
@@ -40,7 +42,16 @@ const routes = createBrowserRouter([
   {
     path:'signup',
     element:<Signup/>
-  }
+  },
+  {
+    path:'admin',
+    element:<Admin/>,
+    children:[
+    {
+      path:'admin',
+      element:<Myinfo/>
+    },
+    ]}
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(

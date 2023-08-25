@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import './App.css';
 import { Link, Outlet } from 'react-router-dom';
 
@@ -26,7 +26,11 @@ function App() {
       menuRef.current.classList.remove("active");
     }
   };
+  const [cartItems, setCartItems] = useState([]);
 
+  const addToCart = (item) => {
+    setCartItems([...cartItems, item]);
+  };
   return (
     <>
     <div class="app-section">
@@ -82,14 +86,19 @@ function App() {
 <Link to="/" className="brand">
         <i>Pink Blink</i>
       </Link>
-
-          <div class="search-box">
+      
+          <div   class="search-box" > 
+          
+  
     <input type="text" class="search-txt" name="" placeholder="Search"/>
     <a href="#" class="search-btn">
       <ion-icon name="search-outline"></ion-icon>
     </a>
-  </div>
-
+  </div> 
+  <a href="#" class="search-btn">
+      <ion-icon name="cart-outline"></ion-icon>
+    </a>
+ 
         </nav>
       </header>
       <main  className="main" ref={mainRef} onClick={handleMainClick}>
