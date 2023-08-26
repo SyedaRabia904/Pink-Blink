@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import Signup from './signup'
-import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import { RouterProvider, createBrowserRouter, redirect } from 'react-router-dom';
 import LoginPage from './login';
 import App from './App';
 import Slideshow from './slideshow';
@@ -9,7 +9,27 @@ import { WomenWear } from './women\'swear';
 import { Makeup } from './makeup';
 import { SkinCare } from './skincare';
 import  Admin  from './admin';
-import { Myinfo } from './myinfo';
+import Items from './manageproduct';
+import Addproduct from './add';
+const loader = () => {
+  let token = localStorage.getItem("token");
+    if(!token){
+      return redirect("/login");
+    }
+
+    return null
+  };
+
+
+  const loginLoader=() =>{
+    let token = localStorage.getItem("token");
+
+    if(token){
+      return redirect("/admin");
+    }
+    return null;
+  }
+
 
 const routes = createBrowserRouter([
   {
@@ -37,6 +57,7 @@ const routes = createBrowserRouter([
   {
     path: 'login',
     element: <LoginPage />,
+    loader: loginLoader
     
   },
   {
@@ -46,12 +67,22 @@ const routes = createBrowserRouter([
   {
     path:'admin',
     element:<Admin/>,
-    children:[
-    {
-      path:'admin',
-      element:<Myinfo/>
-    },
-    ]}
+    loader: loader,
+    children: [
+      {
+        path: '',
+        element: <Items/>
+      },
+      {
+        path: 'manageproduct',
+        element: <Items/>
+      },
+      {
+       path:'add',
+       element:<Addproduct/> 
+      }
+    ]
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(

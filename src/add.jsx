@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 
 import { useNavigate } from 'react-router-dom';
+import { addItem } from './services/items.service';
 
-const CreatePostPage = () => {
+const Addproduct = () => {
   const navigate = useNavigate();
   const [title, setTitle] = useState('');
   const [body, setBody] = useState('');
@@ -32,9 +33,9 @@ const CreatePostPage = () => {
 
     
 
-    addPost(formData).then((post)=>{
-        if(post){
-            navigate("/home/posts");
+    addItem(formData).then((product)=>{
+        if(product){
+            navigate("/admin/add");
         }
     })
     // Reset the form
@@ -108,4 +109,4 @@ const CreatePostPage = () => {
   );
 };
 
-export default CreatePostPage;
+export default Addproduct;

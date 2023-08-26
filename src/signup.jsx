@@ -9,7 +9,8 @@ function Signup() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [gender, setGender] = useState('');
-  const [phonenumber, setPhonenumber] = useState('')
+  const [phonenumber, setPhonenumber] = useState('');
+
   const handleRegister = () => {
     let formData = new FormData();
     formData.append("username", username);
@@ -29,7 +30,7 @@ function Signup() {
   return (
     <div className="login-section"> 
     <div className="box2">
-      <Form onClick={handleRegister} >
+      <Form onSubmit={handleRegister} >
         <img id="customlogo" src="/pinkblink icon.PNG" alt="logo image" />
         <h2>Sign Up</h2>
         <div className="inputBox2">

@@ -195,7 +195,7 @@ export default function Items() {
             <div className="d-flex justify-content-between">
               <h1>Women Wear</h1>
               <div className="d-flex">
-                <Link to="add-post" style={{height:'45px'}} className="btn btn-outline-primary custom-btn btn-sm">
+                <Link to="/add" style={{height:'45px'}} className="btn btn-outline-primary custom-btn btn-sm">
                   Add Item
                 </Link>
               </div>
@@ -247,7 +247,7 @@ export default function Items() {
             <div className="d-flex justify-content-between">
               <h1>Make Up</h1>
               <div className="d-flex">
-                <Link to="add-post" style={{height:'40px'}} className="btn btn-outline-primary custom-btn btn-sm">
+                <Link to="/add" style={{height:'40px'}} className="btn btn-outline-primary custom-btn btn-sm">
                   Add Item
                 </Link>
               </div>
@@ -299,7 +299,7 @@ export default function Items() {
             <div className="d-flex justify-content-between">
               <h1 >Skin Care</h1>
               <div className="d-flex">
-                <Link to="add-post" style={{height:'45px'}}className="btn btn-outline-primary custom-btn btn-sm">
+                <Link to="/add" style={{height:'45px'}}className="btn btn-outline-primary custom-btn btn-sm">
                   Add Item
                 </Link>
               </div>

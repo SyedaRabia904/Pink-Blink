@@ -1,6 +1,7 @@
 import {React,  useState } from 'react';
 import './login.css';
 import { Form, Link, useNavigate } from 'react-router-dom';
+import { login } from './services/admin.service';
 
 
 const LoginPage = () => {
@@ -18,7 +19,7 @@ const LoginPage = () => {
 
       if(data.token){
         localStorage.setItem("token", data.token);
-        navigate("/home");    
+        navigate("/admin");    
       }
     });
 
