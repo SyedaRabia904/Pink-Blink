@@ -124,7 +124,7 @@ export default function Items() {
     {
       id:7,
       name: "MU-07",
-      image: "https://static.thcdn.com/images/large/original//productimg/1600/1600/12765086-1834830290386011.jpg",
+      image: "https://revolutionbeauty.pk/cdn/shop/products/MakeupRevolutionConceal_DefineConcealerC64ml_1400x.jpg?v=1666587240",
       price: "Rs. 3500",
     },
     {
@@ -209,9 +209,11 @@ export default function Items() {
             <th scope="col">#</th>
             <th scope="col">Cover</th>
             <th scope="col">Product title</th>
+            <th scope="col">Description</th>
             <th scope="col">Price</th>
             <th scope="col">Original Price</th>
             <th scope="col">Discount</th>
+            <th scope="col">Stock</th>
             <th scope="col">Actions</th>
           </tr>
         </thead>
@@ -225,9 +227,11 @@ export default function Items() {
             <img className="products-image" src={product.images[0]}  alt={`Cover for ${product.name}`} />
           </td>
           <td>{product.name}</td>
+          <td>{product.description ||"-"}</td>
           <td>{product.price}</td>
           <td>{product.originalPrice || "-"}</td>
           <td>{product.discount || "-"}</td>
+          <td>{product.stock || "-"}</td>
           <td>
             <button  style={{margin:'10px'}} className="btn btn-primary me-2">Edit</button>
             <button className="btn btn-danger">Delete</button>
@@ -254,12 +258,14 @@ export default function Items() {
       <table className="table table-bordered table-hover">
         <thead className="thead-dark">
           <tr>
-            <th scope="col">#</th>
+          <th scope="col">#</th>
             <th scope="col">Cover</th>
-            <th scope="col">Post title</th>
-            <th scope="col">Post Author</th>
-            <th scope="col">Published At</th>
-            <th scope="col">Updated At</th>
+            <th scope="col">Product title</th>
+            <th scope="col">Description</th>
+            <th scope="col">Price</th>
+            <th scope="col">Original Price</th>
+            <th scope="col">Discount</th>
+            <th scope="col">Stock</th>
             <th scope="col">Actions</th>
           </tr>
         </thead>
@@ -270,12 +276,14 @@ export default function Items() {
         <tr key={product.id}>
           <th scope="row">{product.id}</th>
           <td>
-            <img className="product-image" src={product.image}  alt={`Cover for ${product.name}`} />
+            <img className="products-image" src={product.image}  alt={`Cover for ${product.name}`} />
           </td>
           <td>{product.name}</td>
+          <td>{product.description ||"-"}</td>
           <td>{product.price}</td>
           <td>{product.originalPrice || "-"}</td>
           <td>{product.discount || "-"}</td>
+          <td>{product.stock || "-"}</td>
           <td>
             <button  style={{margin:'10px'}} className="btn btn-primary me-2">Edit</button>
             <button className="btn btn-danger">Delete</button>
@@ -302,12 +310,14 @@ export default function Items() {
       <table className="table table-bordered table-hover">
         <thead className="thead-dark">
           <tr>
-            <th scope="col">#</th>
+          <th scope="col">#</th>
             <th scope="col">Cover</th>
-            <th scope="col">Post title</th>
-            <th scope="col">Post Author</th>
-            <th scope="col">Published At</th>
-            <th scope="col">Updated At</th>
+            <th scope="col">Product title</th>
+            <th scope="col">Description</th>
+            <th scope="col">Price</th>
+            <th scope="col">Original Price</th>
+            <th scope="col">Discount</th>
+            <th scope="col">Stock</th>
             <th scope="col">Actions</th>
           </tr>
         </thead>
@@ -318,12 +328,14 @@ export default function Items() {
         <tr key={product.id}>
           <th scope="row">{product.id}</th>
           <td>
-            <img className="product-image" src={product.image}  alt={`Cover for ${product.name}`} />
+            <img className="products-image" src={product.image}  alt={`Cover for ${product.name}`} />
           </td>
           <td>{product.name}</td>
+          <td>{product.description ||"-"}</td>
           <td>{product.price}</td>
           <td>{product.originalPrice || "-"}</td>
           <td>{product.discount || "-"}</td>
+          <td>{product.stock || "-"}</td>
           <td>
             <button  style={{margin:'10px'}} className="btn btn-primary me-2">Edit</button>
             <button className="btn btn-danger">Delete</button>

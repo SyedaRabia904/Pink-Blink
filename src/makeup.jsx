@@ -43,7 +43,7 @@ export function Makeup() {
     {
       id:7,
       name: "MU-07",
-      image: "https://static.thcdn.com/images/large/original//productimg/1600/1600/12765086-1834830290386011.jpg",
+      image: "https://revolutionbeauty.pk/cdn/shop/products/MakeupRevolutionConceal_DefineConcealerC64ml_1400x.jpg?v=1666587240",
       price: "Rs. 3500",
     },
     {

@@ -1,6 +1,6 @@
 import {React,  useState } from 'react';
 import './login.css';
-import { Link, useNavigate } from 'react-router-dom';
+import { Form, Link, useNavigate } from 'react-router-dom';
 
 
 const LoginPage = () => {
@@ -9,7 +9,7 @@ const LoginPage = () => {
   const [password, setPassword] = useState('');
 
   const handleLogin = () => {
-    
+   
     let formData = new FormData();
     formData.append("username", username);
     formData.append("password", password);
@@ -28,7 +28,7 @@ const LoginPage = () => {
     
   <div className="login-section">     
           <div className="box">
-            <form autoComplete="off" action="feed.html">
+            <Form autoComplete="off" action="feed.html">
               <img id="customlogo" src="/pinkblink icon.PNG" alt="logo image" />
               <h2>Log In</h2>
               <div className="inputBox">
@@ -53,7 +53,7 @@ const LoginPage = () => {
                   sign up
                 </Link>
               </div>
-            </form>
+            </Form>
           </div>
         </div>
   );
