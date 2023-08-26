@@ -1,8 +1,8 @@
 import axios from "axios";
 
 
-let apiUrl = "";
-let adminUrl = "";
+let apiUrl = "http://localhost:8080/main/";
+let adminUrl = "http://localhost:8080/main/admin/";
 export const getItems = async()=>{
 
     try{
@@ -17,7 +17,7 @@ export const getItems = async()=>{
 
 export const addItem = async(formData)=>{
     try {
-        let response =await axios.item(adminUrl+ "createpost", formData, {
+        let response =await axios.post(adminUrl+ "createproduct", formData, {
             headers:{
                 "token" : localStorage.getItem("token")
             }

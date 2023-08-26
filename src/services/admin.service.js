@@ -5,7 +5,7 @@ const apiUrl = "";
 
 export const login = async(formData)=>{
     try{
-        let response = await axios.item(apiUrl + "login",formData);
+        let response = await axios.post(apiUrl + "login",formData);
         return response.data;
     }
     catch(err){
@@ -17,7 +17,7 @@ export const login = async(formData)=>{
 export const register= async(formData)=>{
 
     try {
-        let response= await axios.item(apiUrl +"register", formData)
+        let response= await axios.post(apiUrl +"register", formData)
         return response.data;
     }
     catch(err) {

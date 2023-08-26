@@ -28,13 +28,13 @@ const LoginPage = () => {
     
   <div className="login-section">     
           <div className="box">
-            <Form autoComplete="off" action="feed.html">
+            <Form autoComplete="off" onClick={handleLogin}>
               <img id="customlogo" src="/pinkblink icon.PNG" alt="logo image" />
               <h2>Log In</h2>
               <div className="inputBox">
                 <input type="text" value={username}
                     onChange={(e) => setUsername(e.target.value)} required />
-                <span>Email</span>
+                <span>Username</span>
                 <i></i>
               </div>
               <div className="inputBox">
