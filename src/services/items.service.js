@@ -6,7 +6,27 @@ let adminUrl = "https://pink-blink-server.vercel.app/main/admin/";
 export const getItems = async()=>{
 
     try{
-        let response = await axios.get(apiUrl+"items");
+        let response = await axios.get(apiUrl+"womanwear");
+        return response.data;
+    }
+    catch(err){
+        console.error(err);
+    }
+};
+export const getmakeup = async()=>{
+
+    try{
+        let response = await axios.get(apiUrl+"makeup");
+        return response.data;
+    }
+    catch(err){
+        console.error(err);
+    }
+};
+export const getskincare = async()=>{
+
+    try{
+        let response = await axios.get(apiUrl+"skincare");
         return response.data;
     }
     catch(err){

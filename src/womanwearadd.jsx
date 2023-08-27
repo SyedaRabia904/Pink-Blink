@@ -69,6 +69,7 @@ export const Womanwearadd = () => {
       setprice('');
       setstock('');
       setCoverPhoto(null);
+      setCoverPhoto2(null)
     };
   
     const handleCancel = () => {
@@ -78,6 +79,7 @@ export const Womanwearadd = () => {
       setTitle('');
       setBody('');
       setCoverPhoto(null);
+      setCoverPhoto2(null)
       setoriginalprice('');
       setprice('');
       setstock('');
