@@ -10,7 +10,9 @@ import { Makeup } from './makeup';
 import { SkinCare } from './skincare';
 import  Admin  from './admin';
 import Items from './manageproduct';
-import Addproduct from './add';
+import  { Makeupadd } from './makeupadd';
+import { Womanwearadd } from './womanwearadd';
+import { Skincareadd } from './skincareadd';
 const loader = () => {
   let token = localStorage.getItem("token");
     if(!token){
@@ -77,10 +79,19 @@ const routes = createBrowserRouter([
         path: 'manageproduct',
         element: <Items/>
       },
+      { path:'womanwearadd',
+      element:<Womanwearadd/>
+    },
       {
-       path:'add',
-       element:<Addproduct/> 
-      }
+       path:'makeupadd',
+       element:<Makeupadd/> 
+      },
+      {
+        path:'skincareadd',
+        element:<Skincareadd/> 
+       }
+      
+     
     ]
   }
 ]);

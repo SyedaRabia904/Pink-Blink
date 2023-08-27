@@ -1,8 +1,8 @@
 import axios from 'axios';
 
 
-let apiUrl = "http://localhost:8080/main/";
-let adminUrl = "http://localhost:8080/main/admin/";
+let apiUrl = "https://pink-blink-server.vercel.app/main/";
+let adminUrl = "https://pink-blink-server.vercel.app/main/admin/";
 export const getItems = async()=>{
 
     try{

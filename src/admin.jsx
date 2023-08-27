@@ -82,7 +82,7 @@ function Admin() {
                         </Link>
                     </nav>
                 </header>
-                <Items/>
+                <Outlet/>
             </div>
            
         </>
