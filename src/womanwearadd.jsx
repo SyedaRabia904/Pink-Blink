@@ -56,20 +56,12 @@ export const Womanwearadd = () => {
   
       
   
-      addItem(formData).then((womanwear)=>{
-          if(womanwear){
+      addItem(formData).then((womanwears)=>{
+          if(womanwears){
               navigate("/admin");
           }
       })
-      // Reset the form
-      setTitle('');
-      setBody('');
-      setoriginalprice('');
-      setDiscount('')
-      setprice('');
-      setstock('');
-      setCoverPhoto(null);
-      setCoverPhoto2(null)
+      
     };
   
     const handleCancel = () => {

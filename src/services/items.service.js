@@ -3,49 +3,60 @@ import axios from 'axios';
 
 let apiUrl = "https://pink-blink-server.vercel.app/main/";
 let adminUrl = "https://pink-blink-server.vercel.app/main/admin/";
-export const getItems = async()=>{
-
-    try{
-        let response = await axios.get(apiUrl+"womanwear");
-        return response.data;
-    }
-    catch(err){
-        console.error(err);
-    }
-};
-export const getmakeup = async()=>{
-
-    try{
-        let response = await axios.get(apiUrl+"makeup");
-        return response.data;
-    }
-    catch(err){
-        console.error(err);
-    }
-};
-export const getskincare = async()=>{
-
-    try{
-        let response = await axios.get(apiUrl+"skincare");
-        return response.data;
-    }
-    catch(err){
-        console.error(err);
-    }
-};
-
-
-export const addItem = async(formData)=>{
+export const getItem = async(collection) => {
+    
     try {
-        let response =await axios.post(adminUrl+ "createproduct", formData, {
-            headers:{
-                "token" : localStorage.getItem("token")
-            }
-        });
+        let response;
+
+        if (collection === "womanwear") {
+            response = await axios.get(apiUrl + "womanwear");
+        } else if (collection === "makeup") {
+            response = await axios.get(apiUrl + "makeup");
+        } else if (collection === "skincare") {
+            response = await axios.get(apiUrl + "skincare");
+        } else {
+            throw new Error("Invalid collection");
+        }
 
         return response.data;
-    }
-    catch(err){
+    } catch (err) {
         console.error(err);
+        throw err;
     }
 };
+
+
+export const addItem = async (formData, collection) => {
+    try {
+        let response;
+
+        if (collection === "womanwear") {
+            response = await axios.post(adminUrl + "womanwears", formData, {
+                headers: {
+                    "token": localStorage.getItem("token")
+                }
+            });
+        } else if (collection === "makeup") {
+            response = await axios.post(adminUrl + "makeups", formData, {
+                headers: {
+                    "token": localStorage.getItem("token")
+                }
+            });
+        } else if (collection === "skincare") {
+            response = await axios.post(adminUrl + "skincares", formData, {
+                headers: {
+                    "token": localStorage.getItem("token")
+                }
+            });
+        } else {
+            throw new Error("Invalid collection");
+        }
+
+        return response.data;
+    } catch (err) {
+        console.error(err);
+        throw err;
+    }
+};
+
+    
