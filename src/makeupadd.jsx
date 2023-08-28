@@ -8,7 +8,7 @@ export const Makeupadd = () => {
   const [title, setTitle] = useState('');
   const [body, setBody] = useState('');
   const [coverPhoto, setCoverPhoto] = useState(null);
-  const [coverPhoto2, setCoverPhoto2] = useState(null);
+
   const [stock, setstock] = useState('');
   const [price, setprice] = useState('');
   const [originalprice, setoriginalprice] = useState('');
@@ -45,7 +45,6 @@ export const Makeupadd = () => {
     formData.append("title", title);
     formData.append("body", body);
     formData.append("cover", coverPhoto);
-    formData.append("cover", coverPhoto2)
     formData.append("price", price);
     formData.append("originalprice", originalprice);
     formData.append("stock", stock)
@@ -53,18 +52,13 @@ export const Makeupadd = () => {
 
     
 
-    addItem(formData).then((product)=>{
-        if(product){
+    addItem(formData).then((makeup)=>{
+        if(makeup){
             navigate("/admin");
         }
     })
     // Reset the form
-    setTitle('');
-    setBody('');
-    setoriginalprice('');
-    setprice('');
-    setstock('');
-    setCoverPhoto(null);
+    
   };
 
   const handleCancel = () => {

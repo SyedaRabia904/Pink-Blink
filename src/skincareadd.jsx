@@ -53,18 +53,13 @@ export const Skincareadd = () => {
 
     
 
-    addItem(formData).then((product)=>{
-        if(product){
+    addItem(formData).then((skincares)=>{
+        if(skincares){
             navigate("/admin");
         }
     })
     // Reset the form
-    setTitle('');
-    setBody('');
-    setoriginalprice('');
-    setprice('');
-    setstock('');
-    setCoverPhoto(null);
+   
   };
 
   const handleCancel = () => {

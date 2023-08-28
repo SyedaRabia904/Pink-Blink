@@ -1,200 +1,209 @@
 import React, { useState } from 'react';
-
+import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { addItem } from './services/items.service';
 
 export const Womanwearadd = () => {
-    const navigate = useNavigate();
-    const [title, setTitle] = useState('');
-    const [body, setBody] = useState('');
-    const [coverPhoto, setCoverPhoto] = useState(null);
-    const [coverPhoto2, setCoverPhoto2] = useState(null);
-    const [stock, setstock] = useState('');
-    const [price, setprice] = useState('');
-    const [originalprice, setoriginalprice] = useState('');
-    const [discount, setDiscount] = useState('')
-  
-    const handleTitleChange = (event) => {
-      setTitle(event.target.value);
-    };
-    const handlePriceChange = (event) => {
-      setprice(event.target.value);
-    };
-    const handleOriginalPriceChange = (event) => {
-      setoriginalprice(event.target.value);
-    };
-    const handleDiscount= (event)=>{
-        setDiscount(event.target.value)
-    }
-    const handleStockChange = (event) => {
-      setstock(event.target.value);
-    };
-    const handleBodyChange = (event) => {
-      setBody(event.target.value);
-    };
-  
-    const handleCoverPhotoChange = (event) => {
-      setCoverPhoto(event.target.files[0]);
-    };
-    const handleCoverPhotoChange2 = (event) => {
-        setCoverPhoto2(event.target.files[0]);
-      };
-  
-    const handlePublish = () => {
-      // Perform actions to publish the post, like sending data to a server
-      console.log('Post published:', { title, body, coverPhoto , coverPhoto2 , price , originalprice, stock});
-  
-      let formData= new FormData();
-      formData.append("title", title);
-      formData.append("body", body);
-      formData.append("cover", coverPhoto);
-      formData.append("cover", coverPhoto2)
-      formData.append("price", price);
-      formData.append("originalprice", originalprice);
-      formData.append("stock", stock)
-  
-  
-      
-  
-      addItem(formData).then((womanwears)=>{
-          if(womanwears){
-              navigate("/admin");
-          }
-      })
-      
-    };
-  
-    const handleCancel = () => {
-      // Perform actions to cancel post creation
-      console.log('Post creation canceled');
-      // Reset the form
-      setTitle('');
-      setBody('');
-      setCoverPhoto(null);
-      setCoverPhoto2(null)
-      setoriginalprice('');
-      setprice('');
-      setstock('');
-      setDiscount('')
-    };
-  
-    return (
-        <div className="container mt-4">
-        <h1>Create Post</h1>
-        <form>
-          <div style={{marginTop:'25px'}} className="mb-3">
-            <label htmlFor="title" className="form-label">
-              Title
-            </label>
-            <input
-              type="text"
-              className="form-control"
-              id="title"
-              placeholder="Enter title"
-              value={title}
-              onChange={handleTitleChange}
-            />
-          </div>
-          <div className="mb-3">
-            <label htmlFor="title" className="form-label">
-              Price
-            </label>
-            <input
-              type="text"
-              className="form-control"
-              id="title"
-              placeholder="Enter discounted price / original price"
-              value={price}
-              onChange={handlePriceChange}
-            />
-          </div>
-          <div className="mb-3">
-            <label htmlFor="title" className="form-label">
-             Original Price
-            </label>
-            <input
-              type="text"
-              className="form-control"
-              id="title"
-              placeholder="Enter original price if discount available"
-              value={originalprice}
-              onChange={handleOriginalPriceChange}
-            />
-          </div>
-          <div className="mb-3">
-            <label htmlFor="title" className="form-label">
-             Discount
-            </label>
-            <input
-              type="text"
-              className="form-control"
-              id="title"
-              placeholder="Enter discount if available"
-              value={discount}
-              onChange={handleDiscount}
-            />
-          </div>
-          <div className="mb-3">
-            <label htmlFor="title" className="form-label">
-             Stock
-            </label>
-            <input
-              type="text"
-              className="form-control"
-              id="title"
-              placeholder="available or not"
-              value={stock}
-              onChange={handleStockChange}
-            />
-          </div>
-  
-          <div className="mb-3">
-            <label htmlFor="body" className="form-label">
-              Discription
-            </label>
-            <textarea
-              className="form-control"
-              id="body"
-              rows="4"
-              placeholder="Enter Product Dispcription"
-              value={body}
-              onChange={handleBodyChange}
-            ></textarea>
-          </div>
-  
-          <div className="mb-3">
-            <label htmlFor="coverPhoto" className="form-label">
-              Cover Photo
-            </label>
-            <input
-              type="file"
-              className="form-control"
-              id="coverPhoto"
-              accept="image/*"
-              onChange={handleCoverPhotoChange}
-            />
-          </div>
-          <div className="mb-3">
-            <label htmlFor="coverPhoto" className="form-label">
-              Cover Photo
-            </label>
-            <input
-              type="file"
-              className="form-control"
-              id="coverPhoto"
-              accept="image/*"
-              onChange={handleCoverPhotoChange2}
-            />
-          </div>
-        
-          <div style={{display: "inline"  }} >
-            <button style={{marginBottom:'20px' , marginRight: "20px", width:"100px"}} type="button" className="btn btn-outline-primary  custom-btn btn-sm" onClick={handlePublish}>
-              Publish
-            </button>
-            <button style={{marginBottom:'20px' ,width:"100px"}}type="button" className="btn btn-outline-primary  custom-btn btn-sm" onClick={handleCancel}>
-              Cancel
-            </button></div>
-        </form>
-      </div>
-    );
+  const navigate = useNavigate();
+  const [title, setTitle] = useState('');
+  const [body, setBody] = useState('');
+  const [coverPhoto, setCoverPhoto] = useState(null);
+  const [coverPhoto2, setCoverPhoto2] = useState(null);
+  const [stock, setStock] = useState('');
+  const [price, setPrice] = useState('');
+  const [originalPrice, setOriginalPrice] = useState('');
+  const [discount, setDiscount] = useState('');
+
+  const handleTitleChange = (event) => {
+    setTitle(event.target.value);
   };
+  
+  const handlePriceChange = (event) => {
+    setPrice(event.target.value);
+  };
+  
+  const handleOriginalPriceChange = (event) => {
+    setOriginalPrice(event.target.value);
+  };
+  
+  const handleDiscount = (event) => {
+    setDiscount(event.target.value);
+  };
+  
+  const handleStockChange = (event) => {
+    setStock(event.target.value);
+  };
+  
+  const handleBodyChange = (event) => {
+    setBody(event.target.value);
+  };
+  
+  const handleCoverPhotoChange = (event) => {
+    setCoverPhoto(event.target.files[0]);
+  };
+  
+  const handleCoverPhotoChange2 = (event) => {
+    setCoverPhoto2(event.target.files[0]);
+  };
+
+  const handlePublish = async () => {
+    try {
+      const formData = new FormData();
+      formData.append('title', title);
+      formData.append('body', body);
+      formData.append('coverPhoto', coverPhoto);
+      formData.append('coverPhoto2', coverPhoto2);
+      formData.append('price', price);
+      formData.append('originalPrice', originalPrice);
+      formData.append('stock', stock);
+      formData.append('discount', discount);
+      console.log(title,body,price,originalPrice,stock,discount,coverPhoto,coverPhoto2)
+      const response = await addItem(formData, 'womanwear'); 
+
+      if (response) {
+        navigate('/admin');
+      }
+    } catch (error) {
+      console.error('Error publishing:', error);
+    }
+  };
+
+  const handleCancel = () => {
+    setTitle('');
+    setBody('');
+    setCoverPhoto(null);
+    setCoverPhoto2(null);
+    setOriginalPrice('');
+    setPrice('');
+    setStock('');
+    setDiscount('');
+  };
+
+  return (
+    <div className="container mt-4">
+      <h1>Create Post</h1>
+      <form>
+        <div style={{ marginTop: '25px' }} className="mb-3">
+          <label htmlFor="title" className="form-label">
+            Title
+          </label>
+          <input
+            type="text"
+            className="form-control"
+            id="title"
+            placeholder="Enter title"
+            value={title}
+            onChange={handleTitleChange}
+          />
+        </div>
+        <div className="mb-3">
+          <label htmlFor="price" className="form-label">
+            Price
+          </label>
+          <input
+            type="text"
+            className="form-control"
+            id="price"
+            placeholder="Enter discounted price / original price"
+            value={price}
+            onChange={handlePriceChange}
+          />
+        </div>
+        <div className="mb-3">
+          <label htmlFor="originalPrice" className="form-label">
+            Original Price
+          </label>
+          <input
+            type="text"
+            className="form-control"
+            id="originalPrice"
+            placeholder="Enter original price if discount available"
+            value={originalPrice}
+            onChange={handleOriginalPriceChange}
+          />
+        </div>
+        <div className="mb-3">
+          <label htmlFor="discount" className="form-label">
+            Discount
+          </label>
+          <input
+            type="text"
+            className="form-control"
+            id="discount"
+            placeholder="Enter discount if available"
+            value={discount}
+            onChange={handleDiscount}
+          />
+        </div>
+        <div className="mb-3">
+          <label htmlFor="stock" className="form-label">
+            Stock
+          </label>
+          <input
+            type="text"
+            className="form-control"
+            id="stock"
+            placeholder="available or not"
+            value={stock}
+            onChange={handleStockChange}
+          />
+        </div>
+        <div className="mb-3">
+          <label htmlFor="body" className="form-label">
+            Description
+          </label>
+          <textarea
+            className="form-control"
+            id="body"
+            rows="4"
+            placeholder="Enter Product Description"
+            value={body}
+            onChange={handleBodyChange}
+          ></textarea>
+        </div>
+        <div className="mb-3">
+          <label htmlFor="coverPhoto" className="form-label">
+            Cover Photo
+          </label>
+          <input
+            type="file"
+            className="form-control"
+            id="coverPhoto"
+            accept="image/*"
+            onChange={handleCoverPhotoChange}
+          />
+        </div>
+        <div className="mb-3">
+          <label htmlFor="coverPhoto2" className="form-label">
+            Cover Photo 2
+          </label>
+          <input
+            type="file"
+            className="form-control"
+            id="coverPhoto2"
+            accept="image/*"
+            onChange={handleCoverPhotoChange2}
+          />
+        </div>
+        <div style={{ display: 'inline' }}>
+          <button
+            style={{ marginBottom: '20px', marginRight: '20px', width: '100px' }}
+            type="button"
+            className="btn btn-outline-primary custom-btn btn-sm"
+            onClick={handlePublish}
+          >
+            Publish
+          </button>
+          <button
+            style={{ marginBottom: '20px', width: '100px' }}
+            type="button"
+            className="btn btn-outline-primary custom-btn btn-sm"
+            onClick={handleCancel}
+          >
+            Cancel
+          </button>
+        </div>
+      </form>
+    </div>
+  );
+};

@@ -31,19 +31,19 @@ export const addItem = async (formData, collection) => {
         let response;
 
         if (collection === "womanwear") {
-            response = await axios.post(adminUrl + "womanwears", formData, {
+            response = await axios.post(adminUrl + "womanwear" , formData, {
                 headers: {
                     "token": localStorage.getItem("token")
                 }
             });
         } else if (collection === "makeup") {
-            response = await axios.post(adminUrl + "makeups", formData, {
+            response = await axios.post(adminUrl + "makeup", formData, {
                 headers: {
                     "token": localStorage.getItem("token")
                 }
             });
         } else if (collection === "skincare") {
-            response = await axios.post(adminUrl + "skincares", formData, {
+            response = await axios.post(adminUrl + "skincare", formData, {
                 headers: {
                     "token": localStorage.getItem("token")
                 }
