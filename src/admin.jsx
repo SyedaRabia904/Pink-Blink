@@ -1,6 +1,6 @@
 import { React, useRef } from 'react';
 import './App.css';
-import { Link, Outlet } from 'react-router-dom';
+import { Link, Outlet, useNavigate } from 'react-router-dom';
 import { Myinfo } from './myinfo';
 import Items from './manageproduct';
 
@@ -28,6 +28,11 @@ function Admin() {
             burgerRef.current.classList.remove("active");
             menuRef.current.classList.remove("active");
         }
+    };
+    const navigate = useNavigate();
+    const logout= () =>{
+        localStorage.removeItem("token");
+        navigate("/login");
     };
     return (
 
@@ -77,9 +82,9 @@ function Admin() {
                         <div className="brand">
                         <i>Pink Blink</i>
                         </div>
-                        <Link to="/login" className="search-btn">
-                          <ion-icon name='log-out-outline'></ion-icon>
-                        </Link>
+                        <a className="search-btn">
+                          <ion-icon onClick={logout} name='log-out-outline'></ion-icon>
+                        </a>
                     </nav>
                 </header>
                 <Outlet/>

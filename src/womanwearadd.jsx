@@ -42,7 +42,7 @@ export const Womanwearadd = () => {
   
     const handlePublish = () => {
       // Perform actions to publish the post, like sending data to a server
-      console.log('Post published:', { title, body, coverPhoto });
+      console.log('Post published:', { title, body, coverPhoto , coverPhoto2 , price , originalprice, stock});
   
       let formData= new FormData();
       formData.append("title", title);
@@ -56,8 +56,8 @@ export const Womanwearadd = () => {
   
       
   
-      addItem(formData).then((product)=>{
-          if(product){
+      addItem(formData).then((womanwear)=>{
+          if(womanwear){
               navigate("/admin");
           }
       })
