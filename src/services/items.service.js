@@ -2,7 +2,7 @@ import axios from 'axios';
 
 
 let apiUrl = "https://pink-blink-server.vercel.app/main/";
-let adminUrl = "https://pink-blink-server.vercel.app/main/admin/";
+let adminUrl = "https://pink-blink-server.vercel.app/admin/createproduct/";
 export const getItem = async(collection) => {
     
     try {
