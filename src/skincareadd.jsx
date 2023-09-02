@@ -40,14 +40,15 @@ export const Skincareadd = () => {
 
   const handlePublish = () => {
     // Perform actions to publish the post, like sending data to a server
-    console.log('Post published:', { title, body, coverPhoto, price,originalprice, stock });
+    console.log('Post published:', { title, body, coverPhoto, price,originalprice, discount, stock });
 
     let formData= new FormData();
     formData.append("title", title);
-    formData.append("body", body);
+    formData.append("description", body);
     formData.append("cover", coverPhoto);
     formData.append("price", price);
     formData.append("originalprice", originalprice);
+    formData.append("discount", discount);
     formData.append("stock", stock)
 
 
