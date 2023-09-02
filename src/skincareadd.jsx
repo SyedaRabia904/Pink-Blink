@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
 
 import { useNavigate } from 'react-router-dom';
-import { addItem } from './services/items.service';
+import { addSkinCare} from './services/items.service.js';
+
 
 export const Skincareadd = () => {
+  
   const navigate = useNavigate();
   const [title, setTitle] = useState('');
   const [body, setBody] = useState('');
   const [coverPhoto, setCoverPhoto] = useState(null);
-  const [coverPhoto2, setCoverPhoto2] = useState(null);
   const [stock, setstock] = useState('');
   const [price, setprice] = useState('');
   const [originalprice, setoriginalprice] = useState('');
@@ -39,26 +40,24 @@ export const Skincareadd = () => {
 
   const handlePublish = () => {
     // Perform actions to publish the post, like sending data to a server
-    console.log('Post published:', { title, body, coverPhoto });
+    console.log('Post published:', { title, body, coverPhoto, price,originalprice, stock });
 
     let formData= new FormData();
     formData.append("title", title);
     formData.append("body", body);
     formData.append("cover", coverPhoto);
-    formData.append("cover", coverPhoto2)
     formData.append("price", price);
     formData.append("originalprice", originalprice);
     formData.append("stock", stock)
 
 
-    
+    addSkinCare(formData).then((skincare)=>{
+      if(skincare){
+          navigate("/admin");
+      }
+  })
+   
 
-    addItem(formData).then((skincares)=>{
-        if(skincares){
-            navigate("/admin");
-        }
-    })
-    // Reset the form
    
   };
 

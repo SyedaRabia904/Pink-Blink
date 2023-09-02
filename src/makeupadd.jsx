@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import { useNavigate } from 'react-router-dom';
-import { addItem } from './services/items.service';
+
 
 export const Makeupadd = () => {
   const navigate = useNavigate();
@@ -52,11 +52,7 @@ export const Makeupadd = () => {
 
     
 
-    addItem(formData).then((makeup)=>{
-        if(makeup){
-            navigate("/admin");
-        }
-    })
+   
     // Reset the form
     
   };

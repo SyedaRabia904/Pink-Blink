@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import { addItem } from './services/items.service';
+
 
 export const Womanwearadd = () => {
   const navigate = useNavigate();
@@ -45,10 +45,10 @@ export const Womanwearadd = () => {
   const handleCoverPhotoChange2 = (event) => {
     setCoverPhoto2(event.target.files[0]);
   };
-
-  const handlePublish = async () => {
-    try {
-      const formData = new FormData();
+  const handlePublish = () => {
+  let formData= new FormData();
+    
+     
       formData.append('title', title);
       formData.append('body', body);
       formData.append('coverPhoto', coverPhoto);
@@ -58,14 +58,7 @@ export const Womanwearadd = () => {
       formData.append('stock', stock);
       formData.append('discount', discount);
       console.log(title,body,price,originalPrice,stock,discount,coverPhoto,coverPhoto2)
-      const response = await addItem(formData, 'womanwear'); 
-
-      if (response) {
-        navigate('/admin');
-      }
-    } catch (error) {
-      console.error('Error publishing:', error);
-    }
+     
   };
 
   const handleCancel = () => {
