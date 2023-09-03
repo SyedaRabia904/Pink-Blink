@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 
-const apiUrl = "https://pink-blink.vercel.app/main/";
+const apiUrl = "https://pink-blink-server.vercel.app/main/";
 
 export const login = async(formData)=>{
     try{
