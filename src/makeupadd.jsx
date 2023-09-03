@@ -8,7 +8,7 @@ export const Makeupadd = () => {
   const navigate = useNavigate();
   const [title, setTitle] = useState('');
   const [body, setBody] = useState('');
-  const [coverPhoto, setCoverPhoto] = useState(null);
+  const [coverPhoto, setCoverPhoto] = useState('');
 
   const [stock, setstock] = useState('');
   const [price, setprice] = useState('');
@@ -35,7 +35,7 @@ export const Makeupadd = () => {
   };
 
   const handleCoverPhotoChange = (event) => {
-    setCoverPhoto(event.target.files[0]);
+    setCoverPhoto(event.target.value);
   };
 
   const handlePublish = () => {
@@ -65,7 +65,7 @@ export const Makeupadd = () => {
     // Reset the form
     setTitle('');
     setBody('');
-    setCoverPhoto(null);
+    setCoverPhoto('');
     setoriginalprice('');
     setprice('');
     setstock('');
@@ -158,13 +158,13 @@ export const Makeupadd = () => {
         <label htmlFor="coverPhoto" className="form-label">
           Cover Photo
         </label>
-        <input
-          type="file"
-          className="form-control"
-          id="coverPhoto"
-          accept="image/*"
-          onChange={handleCoverPhotoChange}
-        />
+        <textarea
+            className="form-control"
+            id="coverPhoto"
+            placeholder="Enter your image url"
+            value={coverPhoto}
+            onChange={handleCoverPhotoChange}
+          ></textarea>
       </div>
     
       <div style={{display: "inline"  }} >

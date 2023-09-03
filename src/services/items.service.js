@@ -77,3 +77,13 @@ export const addMakeup = async (formData) => {
         throw err; // Rethrow the error for better error handling in the calling code.
     }
 };
+export const getskincareById = async (_id) => {
+    try {
+        // Assuming you have a makeup API endpoint to fetch data by ID
+        const response = await axios.get(`http://localhost:8081/main/skincare/${_id}`);
+        return response.data;
+    } catch (err) {
+        console.error(err);
+        throw err; // Rethrow the error for better error handling in the calling code.
+    }
+};

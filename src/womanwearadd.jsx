@@ -8,8 +8,8 @@ export const Womanwearadd = () => {
   const navigate = useNavigate();
   const [title, setTitle] = useState('');
   const [body, setBody] = useState('');
-  const [coverPhoto, setCoverPhoto] = useState(null);
-  const [coverPhoto2, setCoverPhoto2] = useState(null);
+  const [coverPhoto, setCoverPhoto] = useState('');
+  const [coverPhoto2, setCoverPhoto2] = useState('');
   const [stock, setStock] = useState('');
   const [price, setPrice] = useState('');
   const [originalPrice, setOriginalPrice] = useState('');
@@ -40,11 +40,11 @@ export const Womanwearadd = () => {
   };
   
   const handleCoverPhotoChange = (event) => {
-    setCoverPhoto(event.target.files[0]);
+    setCoverPhoto(event.target.value);
   };
   
   const handleCoverPhotoChange2 = (event) => {
-    setCoverPhoto2(event.target.files[1]);
+    setCoverPhoto2(event.target.value);
   };
   const handlePublish = () => {
     // Perform actions to publish the post, like sending data to a server
@@ -71,8 +71,8 @@ export const Womanwearadd = () => {
   const handleCancel = () => {
     setTitle('');
     setBody('');
-    setCoverPhoto(null);
-    setCoverPhoto2(null);
+    setCoverPhoto('');
+    setCoverPhoto2('');
     setOriginalPrice('');
     setPrice('');
     setStock('');
@@ -80,8 +80,8 @@ export const Womanwearadd = () => {
   };
 
   return (
-    <div className="container mt-4">
-      <h1>Create Post</h1>
+    <div style={{ marginTop: '100px' }} className="container mt-4">
+      <h1>Create Product</h1>
       <form>
         <div style={{ marginTop: '25px' }} className="mb-3">
           <label htmlFor="title" className="form-label">
@@ -165,25 +165,25 @@ export const Womanwearadd = () => {
           <label htmlFor="coverPhoto" className="form-label">
             Cover Photo
           </label>
-          <input
-            type="file"
+          <textarea
             className="form-control"
             id="coverPhoto"
-            accept="image/*"
+            placeholder="Enter your image url"
+            value={coverPhoto}
             onChange={handleCoverPhotoChange}
-          />
+          ></textarea>
         </div>
         <div className="mb-3">
           <label htmlFor="coverPhoto2" className="form-label">
             Cover Photo 2
           </label>
-          <input
-            type="file"
+          <textarea
             className="form-control"
-            id="coverPhoto2"
-            accept="image/*"
+            id="coverPhoto"
+            placeholder="Enter your second image url"
+            value={coverPhoto2}
             onChange={handleCoverPhotoChange2}
-          />
+          ></textarea>
         </div>
         <div style={{ display: 'inline' }}>
           <button

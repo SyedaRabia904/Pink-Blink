@@ -35,7 +35,7 @@ export const Skincareadd = () => {
   };
 
   const handleCoverPhotoChange = (event) => {
-    setCoverPhoto(event.target.files[0]);
+    setCoverPhoto(event.target.value);
   };
 
   const handlePublish = () => {
@@ -68,7 +68,7 @@ export const Skincareadd = () => {
     // Reset the form
     setTitle('');
     setBody('');
-    setCoverPhoto(null);
+    setCoverPhoto('');
     setoriginalprice('');
     setprice('');
     setstock('');
@@ -162,13 +162,13 @@ export const Skincareadd = () => {
           <label htmlFor="coverPhoto" className="form-label">
             Cover Photo
           </label>
-          <input
-            type="file"
+          <textarea
             className="form-control"
             id="coverPhoto"
-            accept="image/*"
+            placeholder="Enter your image url"
+            value={coverPhoto}
             onChange={handleCoverPhotoChange}
-          />
+          ></textarea>
         </div>
       
         <div style={{display: "inline"  }} >
