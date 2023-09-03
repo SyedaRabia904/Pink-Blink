@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 import { useNavigate } from 'react-router-dom';
+import { addMakeup } from './services/items.service.js';
 
 
 export const Makeupadd = () => {
@@ -39,24 +40,25 @@ export const Makeupadd = () => {
 
   const handlePublish = () => {
     // Perform actions to publish the post, like sending data to a server
-    console.log('Post published:', { title, body, coverPhoto });
+    console.log('Post published:', { title, body, coverPhoto, price,originalprice, discount, stock });
 
     let formData= new FormData();
     formData.append("title", title);
-    formData.append("body", body);
+    formData.append("description", body);
     formData.append("cover", coverPhoto);
     formData.append("price", price);
     formData.append("originalprice", originalprice);
+    formData.append("discount", discount);
     formData.append("stock", stock)
 
 
-    
-
+    addMakeup(formData).then((makeup)=>{
+      if(makeup){
+          navigate("/admin");
+      }
+  })
    
-    // Reset the form
-    
-  };
-
+  }
   const handleCancel = () => {
     // Perform actions to cancel post creation
     console.log('Post creation canceled');

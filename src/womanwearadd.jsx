@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { addWomanWear } from './services/items.service.js';
 
 
 export const Womanwearadd = () => {
@@ -43,23 +44,29 @@ export const Womanwearadd = () => {
   };
   
   const handleCoverPhotoChange2 = (event) => {
-    setCoverPhoto2(event.target.files[0]);
+    setCoverPhoto2(event.target.files[1]);
   };
   const handlePublish = () => {
-  let formData= new FormData();
-    
-     
-      formData.append('title', title);
-      formData.append('body', body);
-      formData.append('coverPhoto', coverPhoto);
-      formData.append('coverPhoto2', coverPhoto2);
-      formData.append('price', price);
-      formData.append('originalPrice', originalPrice);
-      formData.append('stock', stock);
-      formData.append('discount', discount);
-      console.log(title,body,price,originalPrice,stock,discount,coverPhoto,coverPhoto2)
-     
-  };
+    // Perform actions to publish the post, like sending data to a server
+    console.log('Post published:', { title, body, coverPhoto,coverPhoto2, price, originalPrice, discount, stock });
+
+    let formData= new FormData();
+    formData.append("title", title);
+    formData.append("description", body);
+    formData.append("cover", coverPhoto);
+    formData.append("cover2", coverPhoto2);
+    formData.append("price", price);
+    formData.append("originalprice", originalPrice);
+    formData.append("discount", discount);
+    formData.append("stock", stock)
+
+
+    addWomanWear(formData).then((womanwear)=>{
+      if(womanwear){
+          navigate("/admin");
+      }
+  })
+}
 
   const handleCancel = () => {
     setTitle('');
