@@ -6,7 +6,7 @@
 	--color-black: #252a32;
 	--color-light: #f1f5f8;
 	--color-red: #d32f2f;
-	--color-blue: #148cb8;
+	--color-blue: rgb(170, 10, 85);;
 }
 
 /* Box Shadow */
@@ -80,7 +80,10 @@ img {
 	color: rgb(170, 10, 85);
 	margin: 0 auto; 
 }
+.brand:hover{
 
+  color: rgb(170, 10, 85) !important;
+}
 /* Header */
 .header {
 	position: sticky; /* Change from fixed to sticky */

@@ -207,9 +207,9 @@ function App() {
       <h5 className="mb-1">Register for free</h5>
     </li>
     <li className="list-inline-item">
-      <a href="#Contact"  className="btn btn-outline-primary  custom-btn btn-sm">
+      <Link to='/signup'  className="btn btn-outline-primary  custom-btn btn-sm">
         Sign up!
-      </a>
+      </Link>
     </li>
   </ul>
   <hr />
