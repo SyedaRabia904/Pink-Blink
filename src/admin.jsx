@@ -79,9 +79,9 @@ function Admin() {
                                 </ul>
                             </li>
                         </ul>
-                        <div className="brand">
-                        <i>Pink Blink</i>
-                        </div>
+                        <Link to="/" className="brand">
+        <i>Pink Blink</i>
+      </Link>
                         <a className="search-btn">
                           <ion-icon onClick={logout} name='log-out-outline'></ion-icon>
                         </a>
