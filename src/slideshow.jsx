@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 import './App.css'; // Import your CSS file
 import ProductsSection from './categories';
 
@@ -34,23 +35,41 @@ function Slideshow() {
   return (
     <div>
       <div className="slideshow-container">
-        <div className="mySlides fade">
-         <div className="numbertext">1 / 3</div>
-          <img src="https://as1.ftcdn.net/v2/jpg/01/89/48/92/1000_F_189489222_sk7gT5kyYY6quwNZPoriJCMSOMFsPrd8.jpg"  style={{width:"100%", height:"80vh"}} alt="Image"/>
-          <div className="text">Women's Wear</div>
-        </div>
+        <Link to="/womenwear"> 
+          <div className="mySlides fade">
+            <div className="numbertext">1 / 3</div>
+            <img
+              src="https://as1.ftcdn.net/v2/jpg/01/89/48/92/1000_F_189489222_sk7gT5kyYY6quwNZPoriJCMSOMFsPrd8.jpg"
+              style={{ width: "100%", height: "80vh" }}
+              alt="Image"
+            />
+            <div className="text">Women's Wear</div>
+          </div>
+        </Link>
 
-        <div className="mySlides fade">
-          <div className="numbertext">2 / 3</div>
-          <img src="https://hips.hearstapps.com/hmg-prod/images/makeup-supplies-amidst-shiny-glitter-royalty-free-image-1640037507.jpg"  style={{width:"100%", height:"80vh"}} alt="Image" />
-          <div className="text">Make Up</div>
-        </div>
+        <Link to="/makeup"> 
+          <div className="mySlides fade">
+            <div className="numbertext">2 / 3</div>
+            <img
+              src="https://hips.hearstapps.com/hmg-prod/images/makeup-supplies-amidst-shiny-glitter-royalty-free-image-1640037507.jpg"
+              style={{ width: "100%", height: "80vh" }}
+              alt="Image"
+            />
+            <div className="text">Make Up</div>
+          </div>
+        </Link>
 
-        <div className="mySlides fade">
-          <div className="numbertext">3 / 3</div>
-          <img src="https://img.freepik.com/free-photo/flat-lay-natural-self-care-products-composition_23-2148990019.jpg?w=2000" style={{width:"100%", height:"80vh"}}  alt="Image" />
-          <div className="text">Skin Care</div>
-        </div>
+        <Link to="/skincare"> 
+          <div className="mySlides fade">
+            <div className="numbertext">3 / 3</div>
+            <img
+              src="https://img.freepik.com/free-photo/flat-lay-natural-self-care-products-composition_23-2148990019.jpg?w=2000"
+              style={{ width: "100%", height: "80vh" }}
+              alt="Image"
+            />
+            <div className="text">Skin Care</div>
+          </div>
+        </Link>
       </div>
       <br />
 
@@ -59,9 +78,8 @@ function Slideshow() {
         <span className="dot"></span>
         <span className="dot"></span>
       </div>
-      <ProductsSection/>
+      <ProductsSection />
     </div>
-    
   );
 }
 
